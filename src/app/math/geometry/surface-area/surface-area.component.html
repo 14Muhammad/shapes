@@ -1,0 +1,377 @@
+<mat-toolbar color="warn">
+  <mat-icon>3d_rotation</mat-icon> &nbsp;
+  <span> Surface Area</span>
+  <span class="example-fill-remaining-space"></span>
+</mat-toolbar>
+<mat-tab-group [selectedIndex]="selectedTab" (selectedTabChange)=tabChanged($event) class="demo-tab-group">
+  <mat-tab label="Tab 1">
+    <ng-template mat-tab-label>
+      <mat-icon>info_outline</mat-icon>
+    </ng-template>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="tab-content">
+          <p class="summary-container">
+            <mat-card><b> Surface area </b> is the total area of all of a 3D figure's surfaces.
+              Below are three examples of the surface area formulae for common solids.
+              <img class="img-responsive" md-card-image src="./assets/images/surface-area-001.png" alt="3D figures">
+              <br>
+              <div class="row">
+                <div class="col-sm-4" *ngFor="let eq of equations">
+                  <mat-list>
+                    <h3 matSubheader>{{eq.name}}</h3>
+                    <mat-list-item>
+                      <ng-katex [equation]="eq.equation" [options]="katexOptions"></ng-katex>
+                    </mat-list-item>
+                  </mat-list>
+                </div>
+              </div>
+              You don't need to memorize these formulae.
+              This section will focus on <b> creative strategies </b> for figuring out new surface areas and
+              comparing similar surface areas, <b> not applying formulae.</b>
+              <br><br>
+              <mat-divider></mat-divider>
+              <br>
+              <h4>Cube </h4>
+              Each of the six sides of a cube has the same area, so the surface area of a cube is
+              <ng-katex [equation]="' SA = 6s^2'" [options]="katexOptions"></ng-katex>
+              <img class="img-responsive" md-card-image src="./assets/images/surface-area-001a.png" alt="Cube">
+              <br>
+              <mat-divider></mat-divider>
+              <br>
+              <h4>Rectangular Prism </h4>
+              A rectangular prism has six rectangular faces, so the surface area is the sum of those six faces
+              <ng-katex [equation]="'SA = 2lw + 2wh + 2lh'" [options]="katexOptions"></ng-katex>
+              <img class="img-responsive" md-card-image src="./assets/images/surface-area-001b.png" alt="Prism">
+              <br>
+              <mat-divider></mat-divider>
+              <br>
+              <h4>Cylinder </h4>
+              A cylinder is composed of a wrapped up rectangle with a circle on either end.
+              The area of each circle is
+              <ng-katex [equation]="' \\pi r^2'"></ng-katex>
+              The rectangle's length is the circumference of the circle, or
+              <ng-katex [equation]="'2 \\pi r'"></ng-katex>
+              .
+              Therefore, the area of the rectangle is
+              <ng-katex [equation]="'2 \\pi rh'"></ng-katex>
+              .
+              The total surface area of a cylinder is
+              <ng-katex [equation]="'SA = 2 \\pi r^2 + 2 \\pi rh'" [options]="katexOptions"></ng-katex>
+              <img class="img-responsive" md-card-image src="./assets/images/surface-area-001c.png" alt="cylinder">
+            </mat-card>
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4  top-buffer">
+        <div class="option-buttons">
+          <button mat-raised-button color="primary" (click)="moveToNextTab()"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Tab 2">
+    <ng-template mat-tab-label>
+      <mat-icon>star_border</mat-icon>
+    </ng-template>
+    <div class="demo-tab-content">
+      <div class="row">
+        <div class="col-md-8  top-buffer">
+          <div class="question-text">
+            <mat-card> Which net will not produce a cube?
+              <img class="img-responsive" md-card-image src="./assets/images/surface-area-003.png"
+                   alt="Photo of a Shiba Inu">
+              <div *ngIf="showHint">
+                <mat-divider></mat-divider>
+                <div class="top-buffer">
+                  C is the only net shown that will not produce a cube when folded.
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+        <div class="col-md-4  top-buffer">
+          <div class="answer-text">
+            <mat-radio-group class="example-radio-group" [(ngModel)]="choice">
+              <mat-radio-button class="example-radio-button" [checked]="isSelected" *ngFor="let option of options2"
+                                [value]="option.text">
+                {{option.text}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <div class="example-selected-value">Your favorite season is: {{choice}}</div>
+            <div class="example-selected-value">Your favorite season is: {{isSelected}}</div>
+            <div class="option-buttons">
+              <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+              <br>
+              <button mat-raised-button color="primary"> Continue</button>
+              <button mat-raised-button color="accent"> View Solution</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Tab 2_1">
+    <ng-template mat-tab-label>
+      <mat-icon>star_border</mat-icon>
+    </ng-template>
+    <div class="demo-tab-content">
+      <div class="row">
+        <div class="col-md-8  top-buffer">
+          <div class="question-text">
+            <mat-card><p> 27 cubes are stacked to create a larger 3-by-3 cube.
+              If one corner cube is removed, how will the surface area of the figure change?
+            </p>
+              <img class="img-responsive" md-card-image src="./assets/images/surface-area-002.png"
+                   alt="Photo of a Shiba Inu">
+            </mat-card>
+          </div>
+        </div>
+        <div class="col-md-4  top-buffer">
+          <div class="answer-text">
+            <mat-radio-group class="example-radio-group" [(ngModel)]="choice">
+              <mat-radio-button class="example-radio-button" [checked]="isSelected" *ngFor="let option of options"
+                                [value]="option.text">
+                {{option.text}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <div class="example-selected-value">Your favorite season is: {{choice}}</div>
+            <div class="example-selected-value">Your favorite season is: {{isSelected}}</div>
+            <div class="option-buttons">
+              <button mat-raised-button> View Hint</button>
+              <br>
+              <button mat-raised-button color="primary"> Continue</button>
+              <button mat-raised-button color="accent"> View Solution</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Tab 3">
+    <ng-template mat-tab-label>
+      <mat-icon>star_border</mat-icon>
+    </ng-template>
+    <div class="demo-tab-content">
+      <div class="row">
+        <div class="col-md-8  top-buffer">
+          <div class="question-text">
+            <mat-card> Figures A and B are both made out of 30 1x1x1 unit cubes. Which figure has the greater surface
+              area? <br><br>
+              <img class="img-responsive" md-card-image src="./assets/images/surface-area-004.png"
+                   alt="Photo of a Shiba Inu">
+              <div *ngIf="showHint">
+                <br><br>
+                <mat-divider></mat-divider>
+                <div class="top-buffer">
+                  Surface area is the amount of space covering a three dimensional object.
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+        <div class="col-md-4  top-buffer">
+          <div class="answer-text">
+            <mat-radio-group class="example-radio-group" [(ngModel)]="choice">
+              <mat-radio-button class="example-radio-button" [checked]="isSelected" *ngFor="let option of options2"
+                                [value]="option.text">
+                {{option.text}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <div class="example-selected-value">Your favorite season is: {{choice}}</div>
+            <div class="example-selected-value">Your favorite season is: {{isSelected}}</div>
+            <div class="option-buttons">
+              <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+              <br>
+              <button mat-raised-button color="primary"> Continue</button>
+              <button mat-raised-button color="accent"> View Solution</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Tab 4">
+    <ng-template mat-tab-label>
+      <mat-icon>star_border</mat-icon>
+    </ng-template>
+    <div class="demo-tab-content">
+      <div class="row">
+        <div class="col-md-8  top-buffer">
+          <div class="question-text">
+            <mat-card> Which of these two rectangular prisms has a greater surface area? <br><br>
+              <img class="img-responsive" md-card-image src="./assets/images/surface-area-005.png"
+                   alt="Photo of a Shiba Inu">
+              <div *ngIf="showHint">
+                <br><br>
+                <mat-divider></mat-divider>
+                <div class="top-buffer">
+                  Surface area is the amount of space covering a three dimensional object.
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+        <div class="col-md-4  top-buffer">
+          <div class="answer-text">
+            <mat-radio-group class="example-radio-group" [(ngModel)]="choice">
+              <mat-radio-button class="example-radio-button" [checked]="isSelected" *ngFor="let option of options2"
+                                [value]="option.text">
+                {{option.text}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <div class="example-selected-value">Your favorite season is: {{choice}}</div>
+            <div class="example-selected-value">Your favorite season is: {{isSelected}}</div>
+            <div class="option-buttons">
+              <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+              <br>
+              <button mat-raised-button color="primary"> Continue</button>
+              <button mat-raised-button color="accent"> View Solution</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Tab 5">
+    <ng-template mat-tab-label>
+      <mat-icon>star_border</mat-icon>
+    </ng-template>
+    <div class="demo-tab-content">
+      <div class="row">
+        <div class="col-md-8  top-buffer">
+          <div class="question-text">
+            <mat-card> Rectangular prism B is twice as tall, twice as wide, and twice as long as rectangular prism A.
+              If the surface area of A is 20, what is the surface area of B? <br><br>
+              <img class="img-responsive" md-card-image src="./assets/images/surface-area-006.png"
+                   alt="Photo of a Shiba Inu">
+              <div *ngIf="showHint">
+                <br><br>
+                <mat-divider></mat-divider>
+                <div class="top-buffer">
+                  Surface area is the amount of space covering a three dimensional object.
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+        <div class="col-md-4  top-buffer">
+          <div class="answer-text">
+            <mat-radio-group class="example-radio-group" [(ngModel)]="choice">
+              <mat-radio-button class="example-radio-button" [checked]="isSelected" *ngFor="let option of options2"
+                                [value]="option.text">
+                {{option.text}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <div class="example-selected-value">Your favorite season is: {{choice}}</div>
+            <div class="example-selected-value">Your favorite season is: {{isSelected}}</div>
+            <div class="option-buttons">
+              <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+              <br>
+              <button mat-raised-button color="primary"> Continue</button>
+              <button mat-raised-button color="accent"> View Solution</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Tab 6">
+    <ng-template mat-tab-label>
+      <mat-icon>star_border</mat-icon>
+    </ng-template>
+    <div class="demo-tab-content">
+      <div class="row">
+        <div class="col-md-8  top-buffer">
+          <div class="question-text">
+            <mat-card> This block of cubes was painted green after the cubes were glued together.
+              When the cubes are pulled apart, how many will have exactly two green faces? <br><br>
+              <img class="img-responsive" md-card-image src="./assets/images/surface-area-007.png"
+                   alt="Photo of a Shiba Inu">
+              <div *ngIf="showHint">
+                <br><br>
+                <mat-divider></mat-divider>
+                <div class="top-buffer">
+                  Surface area is the amount of space covering a three dimensional object.
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+        <div class="col-md-4  top-buffer">
+          <div class="answer-text">
+            <mat-radio-group class="example-radio-group" [(ngModel)]="choice">
+              <mat-radio-button class="example-radio-button" [checked]="isSelected" *ngFor="let option of options2"
+                                [value]="option.text">
+                {{option.text}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <div class="example-selected-value">Your favorite season is: {{choice}}</div>
+            <div class="example-selected-value">Your favorite season is: {{isSelected}}</div>
+            <div class="option-buttons">
+              <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+              <br>
+              <button mat-raised-button color="primary"> Continue</button>
+              <button mat-raised-button color="accent"> View Solution</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </mat-tab>
+  <mat-tab label="Tab 3_1">
+    <ng-template mat-tab-label>
+      <mat-icon>star</mat-icon>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Tab 4">
+    <ng-template mat-tab-label>
+      ⭐
+    </ng-template>
+    <div class="demo-tab-content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
+      Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
+      In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
+      feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,
+      orci enim rutrum enim, vel tempor sapien arcu a tellus.
+      <br/>
+      <br/>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
+      Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
+      In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
+      feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,
+      orci enim rutrum enim, vel tempor sapien arcu a tellus.
+    </div>
+  </mat-tab>
+  <!--  <mat-tab label="Tab 5">
+      No content
+    </mat-tab>
+    <mat-tab label="Tab 6">
+      No content
+    </mat-tab>-->
+</mat-tab-group>

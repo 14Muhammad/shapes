@@ -1,0 +1,66 @@
+.example-fill-remaining-space {
+  /*// This fills the remaining space, by using flexbox.
+  // Every toolbar row uses a flexbox row layout.*/
+  flex: 1 1 auto;
+}
+
+.tab-content {
+  font-size: 15px;
+  line-height: 1.6em;
+  color: #161616;
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-height: 300px;
+}
+
+.summary-container {
+  margin-top: 20px;
+}
+
+.question-text p {
+  line-height: 2.1em;
+  font-size: 16px;
+}
+
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 15px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+
+.row {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+
+.option-buttons button {
+  min-width: 270px;
+  line-height: 32px;
+  margin-top: 8px;
+}
+
+.example-card {
+  width: 90%;
+  margin: 20px;
+}
+
+.example-header-image {
+  /*background-image: url('../../../assets/img/examples/shiba1.jpg');*/
+  background-size: cover;
+}
+
+

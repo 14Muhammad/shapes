@@ -1,0 +1,37 @@
+.example-fill-remaining-space {
+  /*// This fills the remaining space, by using flexbox.
+  // Every toolbar row uses a flexbox row layout.*/
+  flex: 1 1 auto;
+}
+
+.demo-tab-group {
+  border: 1px solid #e8e8e8;
+}
+
+.demo-tab-content {
+  padding: 16px;
+}
+
+mat-sidenav {
+  width: 225px;
+}
+
+mat-sidenav-container {
+  min-height: calc(100% - 64px);
+}
+
+mat-list-item mat-icon {
+  margin-right: 10px;
+}
+
+.mat-list, .mat-nav-list, .mat-selection-list {
+  padding-top: 0px;
+}
+
+.active-item {
+  background-color: #f5f5f5;
+}
+
+*:focus {
+  outline: none;
+}
