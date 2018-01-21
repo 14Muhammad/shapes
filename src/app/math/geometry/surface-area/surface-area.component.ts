@@ -8,13 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class SurfaceAreaComponent implements OnInit {
   choice: string;
   showHint: boolean;
-  selectedTab = 1;
-  katexOptions = {
-    displayMode: true,
-    macros: {
-      '\\RR': '\\mathbb{R}'
-    }
-  };
+  selectedTab = 0;
   equations = [{
     name: 'Cube',
     equation: '6s^2'
@@ -44,23 +38,27 @@ export class SurfaceAreaComponent implements OnInit {
   options2 = [
     {
       text: 'A',
-      correctness: 0
+      correctness: 0,
+      isSelected: false
     },
     {
       text: 'B',
-      correctness: 0
+      correctness: 0,
+      isSelected: false
     },
     {
       text: 'C',
-      correctness: 100
+      correctness: 100,
+      isSelected: false
     },
     {
       text: 'D',
-      correctness: 0
+      correctness: 0,
+      isSelected: false
     }
   ];
 
-  isSelected: boolean;
+  isSelected = true;
 
   constructor() {
   }
@@ -82,6 +80,11 @@ export class SurfaceAreaComponent implements OnInit {
 
   tabChanged(e) {
     console.log('tab changed');
+    console.log(e);
+  }
+
+  problem1Changed(e) {
+    console.log('problem1Changed');
     console.log(e);
   }
 }

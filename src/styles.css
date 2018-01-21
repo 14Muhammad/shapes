@@ -10,3 +10,43 @@ html, body {
 ng-katex {
   font-size: 1.2em;
 }
+
+.tab-content {
+  font-size: 15px;
+  line-height: 1.6em;
+  color: #161616;
+}
+
+.top-buffer {
+  margin-top: 20px;
+}
+
+.bottom-buffer {
+  margin-bottom: 20px;
+}
+
+.row {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.problem-content img {
+  display: block;
+  margin: auto;
+  max-height: 300px;
+}
+
+.option-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.option-radio-button {
+  margin: 15px;
+}
+
+.option-buttons button {
+  min-width: 270px;
+  line-height: 32px;
+  margin-top: 8px;
+}

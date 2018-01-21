@@ -1,0 +1,53 @@
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            A piece of square A is removed to obtain shape B. Which shape has the greater perimeter?
+            <br>
+            <i> <b>Note:</b> All angles are right angles. Figures A and B have the same width and height.</i>
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/perimeter-001.png"
+               alt="perimeter-001">
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+              <b> Perimeter </b> is the distance around the outside of a figure.
+              This quiz is about using the same kind of efficient creative strategizing that
+              we used in the previous quiz where cutting and rearrangement are key!
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            {{option.text}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <h3 *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            Correct <img class="mat-icon" src="./assets/icons/party.png"
+                         alt="party">
+          </div>
+          <div *ngIf="!isCorrect">
+            Incorrect <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                           alt="party">
+          </div>
+        </h3>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

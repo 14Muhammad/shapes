@@ -1,0 +1,65 @@
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            <b> True or False? </b>
+            <br><br>
+
+            If two rectangles have the same perimeter, then they will have the same area.
+          </div>
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+              <div class="bottom-buffer">
+                Rectangles may have the same perimeter and different areas, or the same area and different perimeters.
+                <br>
+                For example, a
+                <ng-katex [equation]="'6 \\times 4'"></ng-katex>
+                rectangle and a
+                <ng-katex [equation]="'8 \\times 2'"></ng-katex>
+                rectangle will have the same perimeter of 20.
+                <br>
+                However, the
+                <ng-katex [equation]="'6 \\times 4'"></ng-katex>
+                rectangle will have an area of 24
+                and the
+                <ng-katex [equation]="'8 \\times 2'"></ng-katex>
+                rectangle will have an area of 16.
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            {{option.text}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <h3 *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            Correct <img class="mat-icon" src="./assets/icons/party.png"
+                         alt="party">
+          </div>
+          <div *ngIf="!isCorrect">
+            Incorrect <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                           alt="party">
+          </div>
+        </h3>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
