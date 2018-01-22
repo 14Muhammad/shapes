@@ -9,6 +9,12 @@ export class SurfaceAreaComponent implements OnInit {
   choice: string;
   showHint: boolean;
   selectedTab = 0;
+  katexOptions = {
+    displayMode: true,
+    macros: {
+      '\\RR': '\\mathbb{R}'
+    }
+  };
   equations = [{
     name: 'Cube',
     equation: '6s^2'
