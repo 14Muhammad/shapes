@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "preinstall": "npm install -g http-server",
-    "postinstall": "ng build --prod"
+    "postinstall": "ng build --aot --build-optimizer true --output-hashing all --extract-css true --name d-chunks false --sourcemaps false --environment prod"
   },
   "engines": {
     "node": "~8.2.1",
