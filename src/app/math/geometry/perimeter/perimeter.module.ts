@@ -9,6 +9,7 @@ import {Problem3Component} from './problems/problem-3/problem-3.component';
 import {Problem4Component} from './problems/problem-4/problem-4.component';
 import {Problem5Component} from './problems/problem-5/problem-5.component';
 import {Problem6Component} from './problems/problem-6/problem-6.component';
+import {PracticeComponent } from './practice/practice.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import {Problem6Component} from './problems/problem-6/problem-6.component';
     SharedModule
   ],
   declarations: [PerimeterComponent, Problem1Component, Problem2Component, Problem3Component,
-    Problem4Component, Problem5Component, Problem6Component]
+    Problem4Component, Problem5Component, Problem6Component, PracticeComponent]
 })
 export class PerimeterModule {
 }

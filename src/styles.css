@@ -50,3 +50,7 @@ ng-katex {
   line-height: 32px;
   margin-top: 8px;
 }
+
+.mat-tab-label-active {
+  background-color: #e8e8e8;
+}
