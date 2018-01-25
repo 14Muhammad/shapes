@@ -1,3 +1,55 @@
-<p>
-  problem-6 works!
-</p>
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            A blue semicircle sits inside of a square. What is the perimeter of the yellow figure?
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/perimeter-005.png"
+               alt="perimeter-005">
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+              <div class="bottom-buffer">
+                The perimeter of the yellow figure includes three sides of a square with side lengths of 2 and
+                half of a circle with a diameter of 2. <br>
+                The three sides of the square sum to 6. <br>
+                The circumference of the entire blue circle would be <ng-katex [equation]="'\\pi d = 2 \\pi'"></ng-katex>
+                Therefore, the curved portion of the yellow figure has a length of <ng-katex [equation]="'\\pi'"></ng-katex>.
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            <ng-katex [equation]="option.text"></ng-katex>
+          </mat-radio-button>
+        </mat-radio-group>
+        <h3 *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            Correct <img class="mat-icon" src="./assets/icons/party.png"
+                         alt="party">
+          </div>
+          <div *ngIf="!isCorrect">
+            Incorrect <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                           alt="party">
+          </div>
+        </h3>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary" (click)="goTO('../problem7')"> Finish </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

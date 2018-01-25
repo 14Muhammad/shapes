@@ -18,7 +18,8 @@ import {PracticeComponent } from './practice/practice.component';
     SharedModule
   ],
   declarations: [PerimeterComponent, Problem1Component, Problem2Component, Problem3Component,
-    Problem4Component, Problem5Component, Problem6Component, PracticeComponent]
+    Problem4Component, Problem5Component, Problem6Component, PracticeComponent],
+  providers: []
 })
 export class PerimeterModule {
 }

@@ -46,11 +46,19 @@ ng-katex {
 }
 
 .option-buttons button {
-  min-width: 270px;
+  min-width: 300px;
   line-height: 32px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .mat-tab-label-active {
   background-color: #e8e8e8;
 }
+
+/*.option-buttons {
+  text-align: center;
+}*/
+
+/*.answer-text {
+  text-align: left;
+}*/

@@ -9,15 +9,32 @@
             then the perimeter is the sum of the edge lengths of the polygon.
             For example, a square with side length 3 has perimeter <ng-katex [equation]="'3 + 3 + 3 + 3 = 12'"></ng-katex>
           </div>
-          <img class="img-responsive" md-card-image src="./assets/images/perimeter-p01.png"
+          <img class="img-responsive" md-card-image src="./assets/images/perimeter-p01.gif"
                alt="perimeter-p01">
+          <div class="bottom-buffer">
+            Any closed figure has a perimeter, such as the irregular polygon below with perimeter
+            <ng-katex [equation]="'1 + 1 + 2 + 3 = 7.'"></ng-katex>
+            <img class="img-responsive" md-card-image src="./assets/images/perimeter-p02-irregular-polygon.png"
+                 alt="perimeter-p02-irregular-polygon">
+            Some shapes do not have a finite number of sides,
+            so calculating the perimeter can be less straight forward. For example, the perimeter (or circumference)
+            of a circle is <ng-katex [equation]="'2 \\pi r'"></ng-katex> where <ng-katex [equation]="'r'"></ng-katex> is
+            the radius of the circle. <br>
+            <ng-katex [equation]="'\\pi'"></ng-katex>is the ratio between a circle's circumference and diameter.
+            That is,
+            <ng-katex [equation]="'	\\dfrac{\\text{circumference}}{\\text{diameter}} = \\pi '" [options]="katexOptions"></ng-katex>
+            <img class="img-responsive" md-card-image src="./assets/images/perimeter-p02a.png"
+                 alt="perimeter-p02a">
+            <img class="img-responsive" md-card-image src="./assets/images/perimeter-p02.gif"
+                 alt="perimeter-p02.gif">
+          </div>
         </mat-card>
       </div>
     </div>
     <div class="col-md-4  top-buffer">
       <div class="answer-text">
         <div class="option-buttons">
-          <button mat-raised-button color="primary" (click)="nextTab()"> Continue</button>
+          <button mat-raised-button color="primary" (click)="goTO('../problem1')"> Continue</button>
         </div>
       </div>
     </div>

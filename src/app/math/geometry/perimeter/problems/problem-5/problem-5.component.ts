@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-problem-5',
@@ -21,7 +22,7 @@ export class Problem5Component implements OnInit {
   ];
 
 
-  constructor() {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -45,5 +46,8 @@ export class Problem5Component implements OnInit {
         this.isCorrect = false;
       }
     }
+  }
+  goTO(path) {
+    this.router.navigate([path], { relativeTo: this.route });
   }
 }

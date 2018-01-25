@@ -13,7 +13,9 @@ import {PracticeComponent} from './practice/practice.component';
 const routes: Routes = [
   {path: 'perimeter', redirectTo: '', pathMatch: 'full'},
   {
-    path: '', component: PerimeterComponent, children: [
+    path: '', component: PerimeterComponent,
+    children: [
+      {path: '', redirectTo: 'practice'},
       {path: 'practice', component: PracticeComponent},
       {path: 'problem1', component: Problem1Component},
       {path: 'problem2', component: Problem2Component},
@@ -23,8 +25,7 @@ const routes: Routes = [
       {path: 'problem6', component: Problem6Component}
     ]
   },
-  /*,
-  { path: '**', redirectTo: 'problem1', pathMatch: 'full' }*/
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({

@@ -1,11 +1,24 @@
 import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatTabNav} from '@angular/material';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-perimeter',
   templateUrl: './perimeter.component.html',
-  styleUrls: ['./perimeter.component.css']
+  styleUrls: ['./perimeter.component.css']/*,
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateX(0)'})),
+      transition('void => *', [
+        style({transform: 'translateX(-100%)'}),
+        animate(100)
+      ]),
+      transition('* => void', [
+        animate(100, style({transform: 'translateX(100%)'}))
+      ])
+    ])
+  ]*/
 })
 export class PerimeterComponent implements OnInit, AfterViewInit {
   routeLinks: any[];
@@ -50,25 +63,11 @@ export class PerimeterComponent implements OnInit, AfterViewInit {
         icon: 'star_border',
         index: 6
       }
-      /*, {
-          label: 'Problem 7',
-          link: './problem7',
-          index: 6
-        }
-      , {
-          label: 'Problem 8',
-          link: './problem8',
-          index: 7
-        }
-      , {
-          label: 'Problem 9',
-          link: './problem9',
-          index: 8
-        }*/
     ];
   }
 
   ngOnInit() {
+    console.log('ngOnInit');
     this.activeLinkIndex = 0;
     this.router.events.subscribe((res) => {
       this.activeLinkIndex = this.routeLinks.indexOf(this.routeLinks.find(tab => tab.link === '.' + this.router.url));
