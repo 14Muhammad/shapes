@@ -1,0 +1,7 @@
+nav a {
+  text-decoration: none;
+}
+
+.mat-tab-link {
+  min-width: 90px;
+}

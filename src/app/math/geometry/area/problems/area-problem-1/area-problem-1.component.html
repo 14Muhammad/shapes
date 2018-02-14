@@ -1,0 +1,76 @@
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            The image shows a collection of squares.
+            If each red square has a side length of 1 unit, what is the area of the entire figure?
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/area-problem-1.png"
+               alt="area-problem-1">
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+              To determine the area of this rectangular figure, we need to know either its length and width,
+              or the areas of the individual squares that combine to create it.
+              Let's start with our information about the red square, and move forward to decide what else we can determine.
+              <br><br>
+              Since each red square has a side length of 1, the blue square has a side length of 2.
+              <br>
+              Therefore, the green square has a side length of 3.
+              <br>
+              The height of the entire figure is 3 and the length of the entire figure is <ng-katex [equation]="'3 + 3 + 2 = 8'"></ng-katex>
+              <br>
+              The area of the entire figure is <ng-katex [equation]="'8 \\times 3 = 24'"></ng-katex>
+              <br>
+              We can also find the area of the entire figure by summing the areas of the individual squares.
+              Each red square has an area of 1, the blue square has an area of <ng-katex [equation]="'2 \\times 2 = 4'"></ng-katex>
+              and each green square has an area of <ng-katex [equation]="'3 \\times 3 = 9'"></ng-katex>.
+              <br>
+              <img class="img-responsive" md-card-image src="./assets/images/area-problem-1-h1.png"
+                   alt="area-problem-1-h1">
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            {{option.text}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            <div class="bool-result"> Correct
+              <img class="mat-icon" src="./assets/icons/party.png"
+                         alt="party">
+            </div>
+          </div>
+          <div *ngIf="!isCorrect">
+            <div class="bool-result"> Incorrect
+              <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                            alt="thinking face">
+            </div>
+            <i> Getting wrong is part of learning! Think again
+              <img class="mat-icon" src="./assets/icons/hope.png" alt="hope face"> </i>
+          </div>
+        </div>
+        <div *ngIf="showHint">
+          <i> It's OK! We're not judging. </i>
+        </div>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary" (click)="goTO('../area-problem-2')"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -55,6 +55,11 @@ ng-katex {
   background-color: #e8e8e8;
 }
 
+.bool-result {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 /*.option-buttons {
   text-align: center;
 }*/
