@@ -1,3 +1,69 @@
-<p>
-  area-problem-9 works!
-</p>
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            Finding the area of a circle is trickier than other shapes we have dealt with so far because of the circle's curves.
+            But, if we slice a circle into lots of congruent pieces,
+            and place those pieces next to each other, we end up with a shape that is very much like a parallelogram.
+            <br>
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/area-problem-9.png"
+               alt="area-problem-9">
+          <br>
+          Given that the distance around the entire circle is the product <ng-katex [equation]="'\\pi d'"></ng-katex>
+          where <ng-katex [equation]="'d'"></ng-katex> is the diameter of the circle,
+          the base length of the parallelogram is one half of the circumference of a circle, or
+          <ng-katex [equation]="'\\pi r'"></ng-katex>
+          <br><br>
+          <b>Is the height of the parallelogram the length of the radius or the diameter?</b>
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+              Each circular slice, or sector, has a height of one radius.
+              <br>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            {{option.text}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            <div class="bool-result"> Correct
+              <img class="mat-icon" src="./assets/icons/party.png"
+                   alt="party">
+            </div>
+          </div>
+          <div *ngIf="!isCorrect">
+            <div class="bool-result"> Incorrect
+              <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                   alt="thinking face">
+            </div>
+            <i> Getting wrong is part of learning! Think again
+              <img class="mat-icon" src="./assets/icons/hope.png" alt="hope face"> </i>
+          </div>
+        </div>
+        <div *ngIf="showHint">
+          <i> It's OK! We're not judging. </i>
+        </div>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary" (click)="goTO('../area-problem-10')"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

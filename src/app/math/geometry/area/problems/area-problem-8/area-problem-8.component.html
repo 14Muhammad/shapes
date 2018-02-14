@@ -1,3 +1,77 @@
-<p>
-  area-problem-8 works!
-</p>
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            No matter the diameter of a circle, if you "unwrap" the circumference to make a straight line segment,
+            it will be just over 3 times the length of the diameter. In fact, it will be <ng-katex [equation]="'\\pi'"></ng-katex>
+            times greater than the diameter.
+            Pi is not a variable, it is a constant that always represents the same number, 3.14159...
+            <br><br>
+            If a circle has a diameter of 30, which value is closest to its circumference?
+            <br>
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/area-problem-8.png"
+               alt="area-problem-8">
+          <br>
+          <i><b>Note:</b></i>
+          <br>
+          The <b>diameter</b> is the distance across a circle through its center.
+          <br>
+          The <b>radius</b> is the distance from the center of a circle to its circumference.
+          <br>
+          The <b>circumference</b> is the distance around a circle.
+          <br><br>
+            <img class="img-responsive" md-card-image src="./assets/images/area-problem-8b.png"
+               alt="area-problem-8b">
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+              We know that the circumference is <ng-katex [equation]="'\\pi'"></ng-katex> times greater than the diameter.
+              Since the diameter is 30, the circumference will be 3.14 times greater.
+              <br>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            {{option.text}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            <div class="bool-result"> Correct
+              <img class="mat-icon" src="./assets/icons/party.png"
+                   alt="party">
+            </div>
+          </div>
+          <div *ngIf="!isCorrect">
+            <div class="bool-result"> Incorrect
+              <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                   alt="thinking face">
+            </div>
+            <i> Getting wrong is part of learning! Think again
+              <img class="mat-icon" src="./assets/icons/hope.png" alt="hope face"> </i>
+          </div>
+        </div>
+        <div *ngIf="showHint">
+          <i> It's OK! We're not judging. </i>
+        </div>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary" (click)="goTO('../area-problem-9')"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

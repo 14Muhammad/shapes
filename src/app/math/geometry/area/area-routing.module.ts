@@ -11,6 +11,8 @@ import {AreaProblem6Component} from './problems/area-problem-6/area-problem-6.co
 import {AreaProblem7Component} from './problems/area-problem-7/area-problem-7.component';
 import {AreaProblem8Component} from './problems/area-problem-8/area-problem-8.component';
 import {AreaProblem9Component} from './problems/area-problem-9/area-problem-9.component';
+import {AreaProblem10Component} from './problems/area-problem-10/area-problem-10.component';
+import {AreaProblem11Component} from './problems/area-problem-11/area-problem-11.component';
 
 
 
@@ -30,7 +32,9 @@ const routes: Routes = [
       {path: 'area-problem-6', component: AreaProblem6Component},
       {path: 'area-problem-7', component: AreaProblem7Component},
       {path: 'area-problem-8', component: AreaProblem8Component},
-      {path: 'area-problem-9', component: AreaProblem9Component}
+      {path: 'area-problem-9', component: AreaProblem9Component},
+      {path: 'area-problem-10', component: AreaProblem10Component},
+      {path: 'area-problem-11', component: AreaProblem11Component}
     ]
   },
   {path: '**', redirectTo: ''}

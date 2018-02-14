@@ -71,6 +71,16 @@ export class AreaComponent implements OnInit {
         link: './area-problem-9',
         icon: 'star_border',
         index: 9
+      }, {
+        label: 'Area Problem 10',
+        link: './area-problem-10',
+        icon: 'star_border',
+        index: 10
+      }, {
+        label: 'Area Problem 11',
+        link: './area-problem-11',
+        icon: 'star_border',
+        index: 11
       }
     ];
   }

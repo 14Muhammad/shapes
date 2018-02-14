@@ -62,6 +62,31 @@ export class PerimeterComponent implements OnInit, AfterViewInit {
         link: './problem6',
         icon: 'star_border',
         index: 6
+      }, {
+        label: 'Problem 7',
+        link: './problem7',
+        icon: 'star_border',
+        index: 7
+      }, {
+        label: 'Problem 8',
+        link: './problem8',
+        icon: 'star_border',
+        index: 8
+      }, {
+        label: 'Problem 9',
+        link: './problem9',
+        icon: 'star_border',
+        index: 9
+      }, {
+        label: 'Problem 10',
+        link: './problem10',
+        icon: 'star_border',
+        index: 10
+      }, {
+        label: 'Problem 11',
+        link: './problem11',
+        icon: 'star_border',
+        index: 11
       }
     ];
   }

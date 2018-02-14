@@ -44,16 +44,25 @@
             {{option.text}}
           </mat-radio-button>
         </mat-radio-group>
-        <h3 *ngIf="choice != null">
+        <div *ngIf="choice != null">
           <div *ngIf="isCorrect">
-            Correct <img class="mat-icon" src="./assets/icons/party.png"
-                         alt="party">
+            <div class="bool-result"> Correct
+              <img class="mat-icon" src="./assets/icons/party.png"
+                   alt="party">
+            </div>
           </div>
           <div *ngIf="!isCorrect">
-            Incorrect <img class="mat-icon" src="./assets/icons/thinking-face.png"
-                           alt="party">
+            <div class="bool-result"> Incorrect
+              <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                   alt="thinking face">
+            </div>
+            <i> Getting wrong is part of learning! Think again
+              <img class="mat-icon" src="./assets/icons/hope.png" alt="hope face"> </i>
           </div>
-        </h3>
+        </div>
+        <div *ngIf="showHint">
+          <i> It's OK! We're not judging. </i>
+        </div>
         <div class="option-buttons">
           <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
           <br>

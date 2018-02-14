@@ -1,0 +1,70 @@
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            The radius of the blue circle is the same as the radius of the pink quarter-circles which overlap it.
+            Which is greater, the area shaded blue or the area shaded pink?
+            <br>
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/area-problem-10.png"
+               alt="area-problem-10">
+          <br>
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+              Adding some lines and labels to the figure makes it easier for us to see what basic shapes we are dealing with.
+              <br>
+              <img class="img-responsive" md-card-image src="./assets/images/area-problem-10-h1.png"
+                   alt="area-problem-10-h1">
+              <br>
+              We have a semi-circle on top, with the remnant pieces of two quarter circles on bottom.
+              Notice that the pieces on the bottom could be slid to the top of the circle to create a 4 by 2 rectangle with an area of 8.
+              <br>
+              <img class="img-responsive" md-card-image src="./assets/images/area-problem-10-h2.png"
+                   alt="area-problem-10-h2">
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            {{option.text}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            <div class="bool-result"> Correct
+              <img class="mat-icon" src="./assets/icons/party.png"
+                   alt="party">
+            </div>
+          </div>
+          <div *ngIf="!isCorrect">
+            <div class="bool-result"> Incorrect
+              <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                   alt="thinking face">
+            </div>
+            <i> Getting wrong is part of learning! Think again
+              <img class="mat-icon" src="./assets/icons/hope.png" alt="hope face"> </i>
+          </div>
+        </div>
+        <div *ngIf="showHint">
+          <i> It's OK! We're not judging. </i>
+        </div>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary" (click)="goTO('../area-problem-11')"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

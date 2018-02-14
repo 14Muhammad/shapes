@@ -1,3 +1,19 @@
-<p>
-  volume works!
-</p>
+<mat-toolbar color="warn">
+  <mat-icon> format_color_fill </mat-icon> &nbsp;
+  <span> Volume </span>
+  <span class="example-fill-remaining-space"></span>
+</mat-toolbar>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let routeLink of routeLinks; let i = index;"
+     [routerLink]="[routeLink.link]"
+     routerLinkActive
+     #rla="routerLinkActive"
+     [active]="rla.isActive"
+     (click)="activeLinkIndex = i"
+     [routerLinkActive]="[rla.isActive ? 'mat-tab-label-active' : '']"
+     [routerLinkActiveOptions]="{exact: true}">
+    <mat-icon>{{routeLink.icon}}</mat-icon>
+  </a>
+</nav>
+<router-outlet></router-outlet>

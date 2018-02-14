@@ -10,7 +10,7 @@
   <mat-sidenav-container (backdropClick)="close('backdrop')" autosize>
     <mat-sidenav #sidenav mode="side" opened="true" (keydown.escape)="close('escape')">
       <mat-nav-list>
-        <h4 mat-subheader>Geometry</h4>
+        <h3 mat-subheader>Learning</h3>
         <mat-divider></mat-divider>
         <mat-list>
           <ng-template ngFor let-item [ngForOf]="sidebarItems">
@@ -18,9 +18,12 @@
               <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
               {{ item.name }}
             </mat-list-item>
-            <span mat-line><mat-divider></mat-divider></span>
+            <!--<span mat-line><mat-divider></mat-divider></span>-->
           </ng-template>
         </mat-list>
+        <h3 mat-subheader>About </h3>
+        <mat-divider></mat-divider>
+
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

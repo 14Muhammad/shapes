@@ -1,0 +1,70 @@
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            Which cylinder has a greater volume?
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/volume-problem-03.png"
+               alt="volume-problem-03">
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+              <b> Cylinder A </b> has a circular base with an area of
+              <ng-katex [equation]="'\\pi r^2 = \\pi 2^2 = 4 \\pi'"></ng-katex>
+              <br>
+              The volume of the cylinder is the area of this base multiplied by the height of the object:
+              <br>
+              <ng-katex [equation]="'V = 4 \\pi ( 8 )  = 32 \\pi'"></ng-katex>
+              <br><br>
+              <b> Cylinder B </b> has a circular base with an area of
+              <ng-katex [equation]="'\\pi r^2 = \\pi 4^2 = 16 \\pi'"></ng-katex>
+              <br>
+              The volume of the cylinder is the area of this base multiplied by the height of the object:
+              <br>
+              <ng-katex [equation]="'V = 16 \\pi ( 4 )  = 64 \\pi'"></ng-katex>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            {{option.text}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            <div class="bool-result"> Correct
+              <img class="mat-icon" src="./assets/icons/party.png"
+                   alt="party">
+            </div>
+          </div>
+          <div *ngIf="!isCorrect">
+            <div class="bool-result"> Incorrect
+              <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                   alt="thinking face">
+            </div>
+            <i> Getting wrong is part of learning! Think again
+              <img class="mat-icon" src="./assets/icons/hope.png" alt="hope face"> </i>
+          </div>
+        </div>
+        <div *ngIf="showHint">
+          <i> It's OK! We're not judging. </i>
+        </div>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary" (click)="goTO('../problem-4')"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

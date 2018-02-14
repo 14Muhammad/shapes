@@ -1,0 +1,75 @@
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            A chocolate shop sells its products in 3 different shapes: a cylinder, a spherical ball, and a cone.
+            These 3 shapes are of the same height and radius. Which option would give you the most chocolate?
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/volume-problem-06.png"
+               alt="volume-problem-06">
+          <br><br>
+          A: The cylinder
+          <br>
+          B: The spherical ball + the cone
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+
+
+              The height of the cylinder and the cone are the same as the height of the sphere,
+              so their heights are <ng-katex [equation]="'2 \\pi'"></ng-katex>.
+              <br><br>
+
+              Therefore, the volume of the <b> cylinder </b> is <ng-katex [equation]="'\\pi r^2 (2r) = 2 \\pi r^3'"></ng-katex>
+              <br><br>
+              The volume of the <b> spherical ball </b> is <ng-katex [equation]="'\\frac 4 3 \\pi r^3'"></ng-katex>
+              <br><br>
+              The volume of the <b> cone </b> is <ng-katex [equation]="'\\frac 1 3 \\pi r^2 (2r) = \\frac 2 3 \\pi r^3'"></ng-katex>
+              <br><br>
+              <ng-katex [equation]="'\\frac 4 3 \\pi r^3 + \\frac 2 3 \\pi r^3 = 2 \\pi r^3'"></ng-katex>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            {{option.text}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            <div class="bool-result"> Correct
+              <img class="mat-icon" src="./assets/icons/party.png"
+                   alt="party">
+            </div>
+          </div>
+          <div *ngIf="!isCorrect">
+            <div class="bool-result"> Incorrect
+              <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                   alt="thinking face">
+            </div>
+            <i> Getting wrong is part of learning! Think again
+              <img class="mat-icon" src="./assets/icons/hope.png" alt="hope face"> </i>
+          </div>
+        </div>
+        <div *ngIf="showHint">
+          <i> It's OK! We're not judging. </i>
+        </div>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary" (click)="goTO('../problem-7')"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

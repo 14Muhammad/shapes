@@ -1,0 +1,38 @@
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            <b> Volume </b> is the amount of space inside of a three dimensional object.
+            <br><br>
+            Below are some examples of the volume formulae for common solids.
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/volume-practice-01.png"
+               alt="volume-practice-01">
+          <div class="top-buffer bottom-buffer">
+            <ul>
+              <li> Rectangular Prisms : <ng-katex [equation]="'V = l \\times w \\times h'"></ng-katex></li>
+              <li> Cylinders : <ng-katex [equation]="'V = \\pi r^2 h'"></ng-katex></li>
+              <li> Arbitrary Prisms : <ng-katex [equation]="'V = ( base area ) \\times h = Bh'"></ng-katex></li>
+              <li> Cones : <ng-katex [equation]="'V = \\frac 1 3 \\pi r^2 h'"></ng-katex></li>
+              <li> Spheres : <ng-katex [equation]="'V = \\frac 4 3 \\pi r^3'"></ng-katex></li>
+            </ul>
+
+
+            You don't need to memorize these formulae.<br>
+            This quiz will focus on <b> creative strategies </b> for figuring out new volumes and comparing
+            similar volumes, <b> not applying formulae. </b>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <div class="option-buttons">
+          <button mat-raised-button color="primary" (click)="goTO('../problem-1')"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

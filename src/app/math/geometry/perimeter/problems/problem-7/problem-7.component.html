@@ -1,0 +1,71 @@
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            If each circle has a radius of 1 and passes through the center of the other circles, what is the perimeter of the red figure?
+            <br>
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/perimeter-006.png"
+               alt="perimeter-006">
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+              <div class="bottom-buffer">
+                If we draw in the diameters of the circles, we can see that the red figure is composed of three semicircles.
+                <br>
+                <img class="img-responsive" md-card-image src="./assets/images/perimeter-006-h1.png"
+                     alt="perimeter-006-h1">
+                <br>
+
+                Each full circle has a diameter of <ng-katex [equation]="'\\pi d = 2 \\pi'"></ng-katex>
+                <br>
+                Therefore, each semicircle has a perimeter of <ng-katex [equation]="'\\pi'"></ng-katex>
+                <br>
+                There are three semi-circles that compose the red figure.
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            <ng-katex [equation]="option.text"></ng-katex>
+          </mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            <div class="bool-result"> Correct
+              <img class="mat-icon" src="./assets/icons/party.png"
+                   alt="party">
+            </div>
+          </div>
+          <div *ngIf="!isCorrect">
+            <div class="bool-result"> Incorrect
+              <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                   alt="thinking face">
+            </div>
+            <i> Getting wrong is part of learning! Think again
+              <img class="mat-icon" src="./assets/icons/hope.png" alt="hope face"> </i>
+          </div>
+        </div>
+        <div *ngIf="showHint">
+          <i> It's OK! We're not judging. </i>
+        </div>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary" (click)="goTO('../problem8')"> Continue </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

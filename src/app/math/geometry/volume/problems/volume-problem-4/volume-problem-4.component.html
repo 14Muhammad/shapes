@@ -1,0 +1,68 @@
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            Kinza blows a spherical bubble gum that has twice the radius of her prior record.
+            How much greater is the volume of the larger bubble?
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/volume-problem-04.png"
+               alt="volume-problem-04">
+          <i><b>Note:</b> Volume of a sphere is <ng-katex [equation]="'\\frac 4 3 \\pi r^3'"></ng-katex> </i>
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+
+              If the original bubble had a radius of <ng-katex [equation]="'r'"></ng-katex>, then its volume was
+              <ng-katex [equation]="'\\frac 4 3 \\pi r^3'"></ng-katex>
+              <br><br>
+
+              This new record bubble has a radius of <ng-katex [equation]="'2r'"></ng-katex>.
+              Therefore, the volume of this new bubble would be
+              <br>
+              <ng-katex [equation]="'\\frac 4 3 \\pi (2r)^3 = \\frac 4 3 \\pi (8r^3) = \\frac {32} 3 \\pi r^3'"></ng-katex>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            {{option.text}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            <div class="bool-result"> Correct
+              <img class="mat-icon" src="./assets/icons/party.png"
+                   alt="party">
+            </div>
+          </div>
+          <div *ngIf="!isCorrect">
+            <div class="bool-result"> Incorrect
+              <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                   alt="thinking face">
+            </div>
+            <i> Getting wrong is part of learning! Think again
+              <img class="mat-icon" src="./assets/icons/hope.png" alt="hope face"> </i>
+          </div>
+        </div>
+        <div *ngIf="showHint">
+          <i> It's OK! We're not judging. </i>
+        </div>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary" (click)="goTO('../problem-5')"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
