@@ -3,7 +3,22 @@
   <span> Surface Area</span>
   <span class="example-fill-remaining-space"></span>
 </mat-toolbar>
-<mat-tab-group [selectedIndex]="selectedTab" (selectedTabChange)=tabChanged($event) class="demo-tab-group">
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let routeLink of routeLinks; let i = index;"
+     [routerLink]="[routeLink.link]"
+     routerLinkActive
+     #rla="routerLinkActive"
+     [active]="rla.isActive"
+     (click)="activeLinkIndex = i"
+     [routerLinkActive]="[rla.isActive ? 'mat-tab-label-active' : '']"
+     [routerLinkActiveOptions]="{exact: true}">
+    <mat-icon>{{routeLink.icon}}</mat-icon>
+  </a>
+</nav>
+<router-outlet></router-outlet>
+
+<!--<mat-tab-group [selectedIndex]="selectedTab" (selectedTabChange)=tabChanged($event) class="demo-tab-group">
   <mat-tab label="Tab 1">
     <ng-template mat-tab-label>
       <mat-icon>info_outline</mat-icon>
@@ -373,10 +388,10 @@
       orci enim rutrum enim, vel tempor sapien arcu a tellus.
     </div>
   </mat-tab>
-  <!--  <mat-tab label="Tab 5">
+  &lt;!&ndash;  <mat-tab label="Tab 5">
       No content
     </mat-tab>
     <mat-tab label="Tab 6">
       No content
-    </mat-tab>-->
-</mat-tab-group>
+    </mat-tab>&ndash;&gt;
+</mat-tab-group>-->

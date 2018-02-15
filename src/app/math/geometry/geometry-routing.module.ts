@@ -6,7 +6,7 @@ export const routes: Routes = [
   {path: 'geometry', redirectTo: 'area', pathMatch: 'full'},
   {path: 'area', loadChildren: 'app/math/geometry/area/area.module#AreaModule'},
   {path: 'perimeter', loadChildren: 'app/math/geometry/perimeter/perimeter.module#PerimeterModule'},
-  {path: 'surface-area', component: SurfaceAreaComponent},
+  {path: 'surface-area', loadChildren: 'app/math/geometry/surface-area/surface-area.module#SurfaceAreaModule'},
   {path: 'volume', loadChildren: 'app/math/geometry/volume/volume.module#VolumeModule'}
 ];
 

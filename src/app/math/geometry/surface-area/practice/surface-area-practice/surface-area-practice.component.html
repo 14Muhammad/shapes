@@ -1,0 +1,68 @@
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            <b> Surface area </b> is the total area of all of a 3D figure's surfaces.
+            Below are three examples of the surface area formulae for common solids.
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/surface-area-001.png" alt="3D figures">
+          <div class="top-buffer bottom-buffer">
+            <br>
+            <div class="row">
+              <div class="col-sm-4" *ngFor="let eq of equations">
+                <mat-list>
+                  <h3 matSubheader>{{eq.name}}</h3>
+                  <mat-list-item>
+                    <ng-katex [equation]="eq.equation" [options]="katexOptions"></ng-katex>
+                  </mat-list-item>
+                </mat-list>
+              </div>
+            </div>
+            You don't need to memorize these formulae.
+            This section will focus on <b> creative strategies </b> for figuring out new surface areas and
+            comparing similar surface areas, <b> not applying formulae.</b>
+            <br><br>
+            <mat-divider></mat-divider>
+            <br>
+            <h4>Cube </h4>
+            Each of the six sides of a cube has the same area, so the surface area of a cube is
+            <ng-katex [equation]="' SA = 6s^2'" [options]="katexOptions"></ng-katex>
+            <img class="img-responsive" md-card-image src="./assets/images/surface-area-001a.png" alt="Cube">
+            <br>
+            <mat-divider></mat-divider>
+            <br>
+            <h4>Rectangular Prism </h4>
+            A rectangular prism has six rectangular faces, so the surface area is the sum of those six faces
+            <ng-katex [equation]="'SA = 2lw + 2wh + 2lh'" [options]="katexOptions"></ng-katex>
+            <img class="img-responsive" md-card-image src="./assets/images/surface-area-001b.png" alt="Prism">
+            <br>
+            <mat-divider></mat-divider>
+            <br>
+            <h4>Cylinder </h4>
+            A cylinder is composed of a wrapped up rectangle with a circle on either end.
+            The area of each circle is
+            <ng-katex [equation]="' \\pi r^2'"></ng-katex>
+            The rectangle's length is the circumference of the circle, or
+            <ng-katex [equation]="'2 \\pi r'"></ng-katex>
+            .
+            Therefore, the area of the rectangle is
+            <ng-katex [equation]="'2 \\pi rh'"></ng-katex>
+            .
+            The total surface area of a cylinder is
+            <ng-katex [equation]="'SA = 2 \\pi r^2 + 2 \\pi rh'" [options]="katexOptions"></ng-katex>
+            <img class="img-responsive" md-card-image src="./assets/images/surface-area-001c.png" alt="cylinder">
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <div class="option-buttons">
+          <button mat-raised-button color="primary" (click)="goTO('../problem-1')"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

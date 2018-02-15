@@ -23,6 +23,14 @@
         </mat-list>
         <h3 mat-subheader>About </h3>
         <mat-divider></mat-divider>
+        <mat-list-item [routerLink]="['/about']" [routerLinkActive]="['active-item']">
+          <mat-icon mat-list-icon> info </mat-icon>
+          Abstract
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/team']" [routerLinkActive]="['active-item']">
+          <mat-icon mat-list-icon> group </mat-icon>
+          Our Team
+        </mat-list-item>
 
       </mat-nav-list>
     </mat-sidenav>
