@@ -1,3 +1,74 @@
-<p>
-  surface-area-problem-7 works!
-</p>
+<div class="tab-content">
+  <div class="row">
+    <div class="col-md-8  top-buffer">
+      <div class="problem-content">
+        <mat-card>
+          <div class="bottom-buffer">
+            Ali forms three equal portions of leftover mashed potatoes into three shapes:
+            a cube, a sphere, and a cylinder.
+            <br>
+            Each portion is heated in the oven to the same uniform temperature.
+            <br><br>
+            When he takes the portions out of the oven and leaves them at room temperature,
+            which shape takes the <b> longest time </b> to cool down?
+            <br>
+          </div>
+          <img class="img-responsive" md-card-image src="./assets/images/surface-area-009.png"
+               alt="surface-area-009">
+          <br>
+          <ul>
+          <li>
+            Assume that the mashed potatoes are uniform in composition and that each shape is maintained throughout the process.
+          </li>
+            <li>
+            The mashed potatoes are suspended in the air.
+            </li>
+          </ul>
+          <div class="top-buffer" *ngIf="showHint">
+            <mat-divider></mat-divider>
+            <div class="top-buffer">
+              Provided Soon..
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-md-4  top-buffer">
+      <div class="answer-text">
+        <mat-radio-group class="option-radio-group"
+                         [(ngModel)]="choice"
+                         (change)="showResult($event)">
+          <mat-radio-button class="option-radio-button"
+                            *ngFor="let option of options"
+                            [value]="option.text">
+            {{option.text}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="choice != null">
+          <div *ngIf="isCorrect">
+            <div class="bool-result"> Correct
+              <img class="mat-icon" src="./assets/icons/party.png"
+                   alt="party">
+            </div>
+          </div>
+          <div *ngIf="!isCorrect">
+            <div class="bool-result"> Incorrect
+              <img class="mat-icon" src="./assets/icons/thinking-face.png"
+                   alt="thinking face">
+            </div>
+            <i> Getting wrong is part of learning! Think again
+              <img class="mat-icon" src="./assets/icons/hope.png" alt="hope face"> </i>
+          </div>
+        </div>
+        <div *ngIf="showHint">
+          <i> It's OK! We're not judging. </i>
+        </div>
+        <div class="option-buttons">
+          <button mat-raised-button (click)="toggleHint()"> {{!showHint ? 'Show Hint' : 'Hide Hint' }}</button>
+          <br>
+          <button mat-raised-button color="primary" (click)="goTO('../problem-8')"> Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
